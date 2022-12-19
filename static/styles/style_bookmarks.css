@@ -1,0 +1,5 @@
+.wrapper {
+  margin-top: 75px;
+  display: grid;
+  grid-column: 1fr 1fr 1fr 1fr 1fr 1fr;
+}

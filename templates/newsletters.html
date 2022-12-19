@@ -1,0 +1,24 @@
+{% extends "index.html" %} {% block head %}{{ super() }}{% endblock %} {% block header_nav %}{{ super() }}{% endblock %} {% block drafts %}{% endblock
+%} {% block tweets %}
+<div class="main-stage newsletter news-full-size">
+  <article>
+    <div class="newsletter-button-box">
+      <div class="newsletter-section-head">
+        <img src="static/assets/w-bg.svg" />
+        <p>New and Notable</p>
+        <div class="date-line">
+          <img src="../static/styles/images/JR-monogram-green.png" />
+          <img src="../static/styles/images/JR-monogram-green.png" />
+          <img src="../static/styles/images/JR-monogram-green.png" />
+          <img src="../static/styles/images/JR-monogram-green.png" />
+          <p>All</p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="newsletter-button-box__inner"></div>
+      <div class="divider"></div>
+    </div>
+  </article>
+</div>
+<!-- <div class="main-stage newsletter right-sidebar"></div> -->
+{% endblock %} {% block modals %}{% endblock %} {% block footer_nav %}{% endblock %} {% block scripts %}{{ super() }}{% endblock %}

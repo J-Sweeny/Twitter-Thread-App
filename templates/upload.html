@@ -1,0 +1,91 @@
+<!-- prettier-ignore -->
+{% extends "index.html" %} 
+{% block head %}{{ super() }}{% endblock %} 
+{% block header_nav %}{{ super() }}{% endblock %} 
+{% block drafts %}{% endblock %} 
+{% block modals %}{% endblock %} 
+{% block tweets %}
+<div class="main-stage margin-nav">
+  <div class="newsletter-section-head">
+    <p>Upload A Newsletter</p>
+  </div>
+  <div class="divider"></div>
+  <article class="newsletter_button">
+    <div class="news-button-stack">
+      <div class="stack-row-1"></div>
+      <div class="stack-row-2">
+        <form method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="newsletter">Newsletter</label>
+            <select name="newsletter" class="form-control">
+              <option value="">Newsletters</option>
+              <option value="just-raised">Just Raised</option>
+              <option value="perpetual">Perpetual</option>
+              <option value="marketing">Marketing Millenials</option>
+              <option value="hr">I Hate it Here</option>
+              <option value="fintech-takes">Fintech Takes</option>
+              <option value="twif">This Week in Fintech</option>
+              <option value="wtf">What the Fintech</option>
+              <option value="franchise">Franchise Wolf</option>
+              <option value="green-paper">Green Paper</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" placeholder="Post title" class="form-control" value="{{ request.form['title'] }}" />
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" name="date" placeholder="11/15/21" class="form-control" value="{{ request.form['date'] }}" />
+          </div>
+          <div class="form-group">
+            <label for="subject_line">Subject Line</label>
+            <input
+              name="subject_line"
+              placeholder="Advertising: Big Tech's Next Frontier"
+              class="form-control"
+              value="{{ request.form['subject_line'] }}" />
+          </div>
+          <div class="form-group" enctype="multipart/form-data">
+            <label for="content">Content</label>
+            <input type="file" name="content" class="form-control" value="{{ request.form['content'] }}" />
+          </div>
+          <!-- accept=".html" -->
+          <!-- <textarea name="content" placeholder="Lorem ipsum" class="form-control">
+            {{ request.form['content'] }}</textarea> -->
+          <div class="form-group twt">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </article>
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="flashes">
+    {% for message in messages %}
+    <div class="flash-messages">{{ message }}</div>
+    {% endfor %} {% endif %} {% endwith %} {% if post %}
+    <div class="modal">{{ post }}</div>
+    {% endif %}
+  </div>
+  <script>
+    function fade(element) {
+      var op = 1; // initial opacity
+      var timer = setInterval(function () {
+        if (op <= 0.1) {
+          clearInterval(timer);
+          element.style.display = "none";
+        }
+        element.style.opacity = op;
+        element.style.filter = "alpha(opacity=" + op * 100 + ")";
+        op -= op * 0.1;
+      }, 50);
+    }
+    if (document.querySelector(".flash-messages")) {
+      setTimeout(() => {
+        fade(document.querySelector(".flash-messages"));
+      }, 3000);
+    }
+  </script>
+</div>
+{% endblock %} {% block footer_nav %}{% endblock %}

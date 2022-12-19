@@ -1,0 +1,13 @@
+<!-- prettier-ignore -->
+{% extends "index.html" %} 
+{% block head %}{{ super() }}{% endblock %} {% block header_nav %}{{ super() }}{% endblock %} {% block drafts %}{% endblock %} {% block tweets %}
+<div class="wide-grid">
+  {% for bookmark in bookmarks[0:5] %}
+  <blockquote class="twitter-tweet modal" id="{{ bookmark['id'] }}"><a href="https://twitter.com/x/status/{{ bookmark['id'] }}"></a></blockquote>
+  {% endfor %}
+</div>
+
+{% endblock %} {% block modals %}{% endblock %} {% block footer_nav %} {% endblock %} {% block scripts %}
+<script src="static/bookmarks_render.js"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endblock %}

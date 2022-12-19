@@ -1,0 +1,47 @@
+{% extends "index.html" %} {% block head %}{{ super() }}{% endblock %} {% block header_nav %}{{ super() }}{% endblock %} {% block drafts %} {%
+endblock %} {% block tweets %}
+
+<div class="main-stage tweets">
+  <div class="modal" style="width: 400px; box-shadow: none">
+    <a href="#"><img alt="Avatar" src="{{pro_pic}}" width="90px" height="90px" style="border-radius: 100%" /></a>
+    <div class="given-name" style="font-size: 1.75rem"><strong>{{name}}</strong></div>
+    <div class="at-name" style="font-size: 1.2rem; color: lightslategray">@{{username}}</div>
+    <p style="padding: 10px 0px">{{descript}}</p>
+    <div style="display: flex">
+      <p style="padding: 10px 10px 0px 0px">Followers: <strong>{{followers}}</strong></p>
+      <p style="padding: 10px 10px 0px 0px">Following: <strong>{{following}}</strong></p>
+    </div>
+    <div style="display: flex">
+      <p style="padding: 10px 10px 10px 0px">Listed: <strong>{{listed}}</strong></p>
+      <p style="padding: 10px 10px 10px 0px">Tweet Count: <strong>{{tweet_count}}</strong></p>
+    </div>
+  </div>
+</div>
+
+<div class="main-stage tweets">
+  <div class="filler-top"></div>
+  <div class="filler-top"></div>
+  <article>
+    <div data-chart="{{twts}}" id="twt-tracker-data"></div>
+    <div class="charts">
+      <canvas id="myChart"></canvas>
+    </div>
+    <form action="" method="post" class="user-search">
+      <div class="form-row">
+        <label for="user-tweet-count">Search by username</label>
+        <input id="user-tweet-count" name="user-tweet-count" type="text" placeholder="joeysweeny" />
+      </div>
+    </form>
+  </article>
+</div>
+
+{% endblock %} {% block modals %}{% endblock %} {% block footer_nav %}{% endblock %} {% block scripts %}
+<script src="/static/styles/dk.js" type="module"></script>
+<script src="static/styles/twt_tracker_chart.js"></script>
+<script src="https://kit.fontawesome.com/a4c95a4ed2.js" crossorigin="anonymous"></script>
+<script>
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
+</script>
+{% endblock %}

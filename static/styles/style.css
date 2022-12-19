@@ -1,0 +1,972 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: fit-content;
+}
+
+body {
+  background-color: white; /* Love this cream hsl(30, 38%, 92%) This one too #f2f2f2 */
+  /* filter: invert(1); This is a not very good dark mode generator */
+  font-family: "Inter", sans-serif;
+  /* "Roboto"; */
+  font-weight: 400;
+  font-size: 15px;
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  margin: 25px;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly;
+  position: relative;
+  height: 100%;
+  line-height: 1.4;
+}
+
+.main-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 580px;
+  height: stretch;
+}
+
+.wide-grid {
+  margin-top: 75px;
+  max-width: 100%;
+  display: grid;
+  grid: auto / 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+select {
+  font-size: 0.9rem;
+  padding: 2px 5px;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:active {
+  transform: scale(1.01);
+}
+
+.nav {
+  padding: 14px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 3;
+  background: white;
+}
+
+.nav-top {
+  max-height: 35px;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  box-shadow: -4px -4px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.nav-bottom {
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.left-nav {
+  width: 25vw;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+}
+
+.right-nav {
+  width: 25vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.center-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  max-width: 580px;
+  z-index: 3;
+}
+
+.center-nav p {
+  margin: 10px;
+}
+
+.nav-top > .center-nav > button,
+.nav-top > .right-nav > button {
+  border: none;
+  background-color: transparent;
+  margin: 10px;
+  font-size: 15px; /* Too big I think */
+}
+
+.nav-top > .center-nav > button:hover,
+.nav-top > .right-nav > button:hover {
+  cursor: pointer;
+  border-bottom: solid black 1px;
+}
+
+.avatar img,
+.dark-mode {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.avatar img {
+  margin-top: 5px;
+}
+
+.dark-mode {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 8px;
+  background-color: #eff1f1; /*Shopify Dark Color*/
+}
+
+.dark-mode svg {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.dark-mode button {
+  background-color: transparent;
+  border: none;
+}
+
+.dark-mode button:active {
+  transform: none;
+}
+
+.dark-mode:hover {
+  background-color: #141d1e;
+}
+
+.dark-mode:hover svg {
+  fill: yellow;
+}
+
+.drafts-toggle {
+  height: 30px;
+  width: 30px;
+  margin: 5px 0px 0px 0px;
+  justify-content: center;
+  align-content: center;
+}
+
+.labs {
+  margin: 3px 0px 0px 10px;
+}
+
+.center-nav .sch,
+.center-nav .twt {
+  width: 100%;
+  margin: 0px 10px;
+}
+
+.sch button,
+.twt button {
+  width: 100%;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.twitter-login-submit {
+  padding: 20px;
+  margin: 0 20px;
+  background-color: #1da1f2;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  font-weight: 700;
+}
+
+.login-modal {
+  z-index: 9;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px 0px rgb(0 0 0 / 20%);
+  padding: 25px 25px;
+  margin: 125px 0px;
+  max-height: 585px;
+  overflow: scroll;
+}
+
+.login-hero {
+  font-size: 38px;
+  font-weight: 800;
+  margin-left: 20px;
+  padding: 30px;
+}
+
+.sch > button {
+  color: white;
+  background-color: #fa902a;
+  /* background-color: #d56b05; */
+}
+
+.sch > button:hover {
+  background-color: #d56b05;
+}
+
+.sch > button:active {
+  background-color: #9f5003;
+}
+
+.twt > button {
+  color: white;
+  background-color: #1da1f2;
+}
+
+.twt > button:hover {
+  color: white;
+  background-color: #0b7bc0;
+}
+
+.twt > button:active {
+  color: white;
+  background-color: #075280;
+}
+
+.zap {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  margin: 0px 10px;
+  border: none;
+  border-radius: 30px;
+  /* transition: ease all 0.1s; */
+  background-color: white;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.pop-up-bar p {
+  text-align: center;
+}
+
+.zap:hover {
+  transform: scale(1.1);
+}
+
+.pop-up-bar {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-end;
+  bottom: 150%;
+  z-index: 3;
+}
+
+.pop-up-bar button {
+  margin: 16px;
+}
+
+.slidein {
+  display: flex;
+  animation-duration: 0.4s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-right: -15%;
+  }
+
+  to {
+    margin-right: 0%;
+  }
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  display: none;
+  width: 120px;
+  background-color: grey;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 8px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltiptext {
+  display: flex;
+  justify-content: center;
+}
+
+.tooltip:hover .tooltiptext {
+  display: flex;
+  bottom: 48px;
+  right: -18px;
+  z-index: 4;
+}
+
+.filler-top {
+  width: 100%;
+  height: 40px;
+}
+
+.filler-bottom {
+  width: 100%;
+  height: 80px;
+  margin: 10px 0;
+}
+
+.container {
+  display: grid;
+  grid: auto / 52px 1fr;
+  gap: 12px;
+  margin: 60px 0 100px 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.pro-pic {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 52px;
+  top: 20px;
+  left: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tweet-block {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.tweet-block:hover {
+  /* transform: scale(1.01); */
+}
+
+.user-name-line {
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 100%;
+  gap: 0.25rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 0 4px 0;
+}
+
+.given-name {
+  max-width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.2rem;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 700;
+}
+
+.at-name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.thread-line {
+  /* Not working -- In theory this should be in grid column 1 below the pro pic but it doesn't show */
+  width: 2px;
+  border: solid 1px grey;
+  height: 100%;
+}
+
+.tweet-text p {
+  /* Line length should be 465px */
+  width: 450px; /* I believe Twitter's real line breaks are at 450px on desktop and more like /
+                      370px on mobile */
+  font-size: 15px;
+  min-height: 1.5rem;
+}
+
+.tweet-text p:focus {
+  outline: none;
+}
+
+.add-tweet {
+  position: absolute;
+  z-index: 1;
+  width: 34px;
+  height: 24px;
+  right: 40px;
+  bottom: -40px;
+  color: #bdbdbd;
+}
+
+.final-draft-modal {
+  position: absolute;
+  z-index: 9;
+  left: -25px;
+  background: white;
+  border-radius: 8px;
+  /* border: solid 1px #1da1f2; */
+  border: solid 1px rgba(255, 105, 180, 1);
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2);
+  padding: 25px 25px;
+  margin: 60px 0px;
+  max-height: 585px;
+  overflow: scroll;
+}
+
+.final-draft-backdrop {
+  position: absolute;
+  z-index: 8;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  backdrop-filter: blur(5px);
+  /* background: rgba(255, 105, 180, 0.5); */
+  background: rgba(29, 161, 242, 0.5);
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav a:link {
+  color: #141d1e;
+}
+
+.nav a:visited {
+  color: #141d1e;
+}
+
+.dkmd-grey {
+  color: #d7d7dc;
+  background-color: #141d1e;
+  border-radius: 20px;
+}
+
+.dkmd {
+  color: #d7d7dc;
+  background-color: #041014;
+}
+
+.dkmd-heading {
+  color: #b6c9f9 !important;
+}
+
+.dkmd-news {
+  color: #d7d7dc !important;
+}
+
+.dkmd-div {
+  border-top: 5px solid #b6c9f9 !important;
+}
+
+.dkmd a:link {
+  color: #d7d7dc;
+}
+
+.dkmd a:visited {
+  color: #d7d7dc;
+}
+
+.dkmd-yellow {
+  color: #fbc506 !important;
+}
+
+.dkmd-green {
+  color: #1db954 !important;
+}
+
+.tweets {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.margin-nav {
+  margin-top: 75px;
+}
+
+.form-group {
+  padding-bottom: 20px;
+  display: grid;
+  grid: 1fr / 1fr;
+  min-width: 470px;
+}
+
+.modal {
+  position: sticky;
+  top: 75px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.08);
+  min-width: 400px;
+  min-height: 200px;
+  max-width: 580px;
+  max-height: 1000px;
+  /* padding: 22px;
+  margin: 25px; */
+  overflow: scroll;
+}
+
+.modal:hover {
+  transform: scale(1.01);
+}
+
+.quit-modal {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: #bdbdbd;
+  padding: 20px;
+  z-index: 10;
+}
+
+.focus-modal {
+  position: absolute;
+  top: 0px;
+  right: 35px;
+  color: #bdbdbd;
+  padding: 20px;
+}
+
+.frosted {
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  border: 1 px solid rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.ww-bg-big {
+  /* height: 99vh; */
+  position: fixed;
+  top: -200px;
+  display: flex;
+  align-content: center;
+  transform: rotate(-15deg);
+}
+
+.ww-loader {
+  /* position: sticky;
+  top: 1px; */
+  /* width: 100vw; */
+  display: flex;
+  align-content: center;
+  /* transform: rotate(-15deg); */
+}
+
+.ww-loader-2 {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  width: 500px;
+  transform: rotate(0deg);
+}
+
+.ww-loader > svg {
+  display: flex;
+  width: 600px;
+  height: fit-content;
+  stroke-width: 3px;
+  stroke: #fbc506;
+}
+
+.ww-loader > svg path {
+  stroke-dasharray: 2749;
+  stroke-dashoffset: 2749;
+  animation: dash 4s linear infinite forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.right-sidebar {
+  position: relative;
+  top: 20vh;
+  flex-basis: 1;
+}
+
+.condensed-buttons {
+  max-width: 350px !important;
+}
+
+.newsletter,
+.feed {
+  margin: 25px 0px 70px 0px;
+  box-shadow: none;
+  height: 1000px;
+}
+
+.newsletter:hover {
+  transform: none;
+}
+
+.newsletter-button-box {
+  display: flex;
+  flex-direction: column;
+  min-width: 510px;
+}
+
+.newsletter-section-head {
+  display: flex;
+  font-size: 18px;
+  font-weight: 800;
+  margin-left: 20px;
+  padding: 7px 0px 10px 0px;
+}
+
+.newsletter-section-head > img,
+.date-line > img {
+  height: 22px;
+  margin-right: 10px;
+}
+
+.date-line > img:hover {
+  transform: scale(1.3) translateY(-5px);
+}
+
+.date-line > p {
+  margin-right: 10px;
+}
+
+.date-line > p:hover {
+  text-decoration-line: underline;
+}
+
+.newsletter_button {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  width: 500px;
+  border-radius: 8px;
+  margin: 12px 5px;
+  padding: 4px 8px;
+  overflow: wrap;
+}
+
+.newsletter-button-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack-row-1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.publication-line {
+  display: flex;
+  color: lightslategray;
+  font-size: 14px;
+  align-items: center;
+}
+
+.publication-line > img {
+  height: 40px;
+  width: 40px;
+}
+
+.title-line {
+  font-weight: 800;
+  margin-left: 10px;
+  padding: 7px 0px;
+}
+
+.date-line {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.stack-row-2 {
+  margin-left: 10px;
+  font-size: 14px;
+  overflow: hidden;
+  color: lightslategray;
+  font-size: 14px;
+  padding-bottom: 7px;
+}
+
+.stack-row-3 {
+  margin-left: 10px;
+  color: lightslategray;
+  font-size: 12px;
+  padding-bottom: 7px;
+}
+
+.newsletter_button > img {
+  width: 330px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.newsletter_button:hover {
+  background: rgba(211, 211, 211, 0.4) !important;
+  transform: scale(1.02);
+}
+
+.divider {
+  border-bottom: 1px solid lightslategrey;
+}
+
+/* .newsletter_button:hover {
+  transform: scale(1.05);
+  font-weight: 800;
+  text-decoration: underline #00ab41;
+  color: #00ab41;
+  border: #00ab41;
+} */
+
+.news-full-size {
+  max-width: 775px;
+  position: relative;
+  margin-top: 55px;
+  height: fit-content;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+.feed {
+  width: 580px;
+  box-shadow: none;
+  align-content: center;
+  justify-content: flex-start;
+}
+
+.rand,
+.timer {
+  padding: 22px;
+  margin: 25px;
+}
+
+.timer {
+  align-items: center;
+}
+
+.timer-button-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.display-time-left {
+  font-size: 8rem;
+  margin: 0;
+  /* color: black; */
+  text-shadow: 5px 5px 1px rgba(0, 0, 0, 0.05);
+}
+
+.second-timer {
+  margin-right: 10px;
+  color: #ffcccb;
+}
+
+.color_red {
+  /* -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #041014; */
+  color: #ff0038;
+}
+
+/* .pomodoro {
+  color: #fbc506
+} */
+
+.weekly-tracker {
+  padding: 0 22px 22px 22px;
+  margin: 25px;
+}
+
+.charts {
+  width: 650px;
+}
+
+.drafts {
+  position: absolute;
+  left: 0;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.09);
+  /* background: rgba(255, 255, 255, 0.8); */
+  max-width: 250px;
+  min-height: 750px;
+  align-self: center;
+}
+
+.draft-box {
+  border: 1px dashed #d4f1f4;
+  margin: 0;
+  padding: 1rem;
+}
+
+.expand-window {
+  position: absolute;
+  top: 0.75rem;
+  right: 2.1rem;
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 100%;
+  background-color: #00ab41;
+  border: solid 1px #c5c6ff;
+}
+
+.close-window {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 100%;
+  background-color: #c33a36; /* cf142b */
+  border: solid 1px #c5c6ff;
+}
+
+.disappear {
+  display: none;
+}
+
+@media only screen and (min-width: 1160px) {
+  /* .sprint p,
+  .zap p {
+    display: flex;
+  }
+
+  .sprint p {
+    margin-left: 8px;
+  } */
+}
+
+/***
+border: red solid 1px;
+
+Shopify's Color Scheme
+shopify hea`ding lettering: #eff1f1
+subheading: #eef2f1
+body text: #d7d7dc
+hyperlink: #b6c9f9
+
+foreground grey: #141d1e
+background black: #0d1213
+
+neon green flair: #8cfb80
+neon purple flair: #ab3ad2
+neon violet flair: #9db8f8
+green flair: #66c434
+blue flair: #0082f7
+purple flair: #6157f6
+
+
+.carousel {
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 24px;
+}
+
+.carousel .item {
+  scroll-snap-align: start;
+}
+
+el.scrollIntoView({
+  behavior: 'smooth',
+  inline: 'start'
+})
+  
+  
+
+background-image: linear-gradient(to right, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+
+Stolen SVG of a Pen
+<svg width="16" height="16" stroke="var(--c1)" stroke-width="1.7px" stroke-linecap="round" stroke-linejoin="round" stroke="currentcolor" viewBox="0 0 24 24" style="box-sizing: border-box; width: 18px; height: 18px; position: relative; flex: 0 0 auto;"> 
+        <path d="M4.56584 15.7094C4.59644 15.4952 4.69568 15.2967 4.84868 15.1437L15.6364 4.35599C16.0269 3.96547 16.6601 3.96547 17.0506 4.35599L19.5466 6.85195C19.9371 7.24248 19.9371 7.87564 19.5466 8.26617L8.75885 19.0539C8.60586 19.2069 8.40736 19.3061 8.19317 19.3367L4.62125 19.847C4.29127 19.8941 4.00842 19.6113 4.05556 19.2813L4.56584 15.7094Z"></path>
+      </svg>
+***/
+
+/* This should be separated out into another stylesheet for Newsletter pages */
+
+.most-recent {
+  display: flex;
+  position: fixed;
+  top: 50px;
+  right: 600px;
+  background: rgba(235, 87, 87, 0.5);
+  color: white;
+  font-size: small;
+  font-weight: 550;
+  border-radius: 10px;
+  padding: 7px 10px;
+  width: fit-content;
+}
+
+.flash-messages {
+  display: flex;
+  background: rgba(235, 87, 87, 1);
+  color: white;
+  /* font-size: small; */
+  font-weight: 550;
+  border-radius: 10px;
+  padding: 7px 10px;
+  width: fit-content;
+  margin-bottom: 20px;
+}

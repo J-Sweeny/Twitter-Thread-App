@@ -1,0 +1,47 @@
+.hero {
+  flex-direction: column-reverse;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.four-oh-four > p {
+  font-size: 5em;
+  color: #fbc506;
+  text-align: center;
+}
+
+.hero-text {
+  display: flex;
+  padding: 10px;
+}
+
+.hero-text > p {
+  font-size: 2em;
+  font-weight: 600;
+  width: 375px;
+}
+
+.hero-content {
+  position: relative;
+  top: 80px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .hero {
+    flex-direction: row;
+  }
+
+  .hero-content {
+    left: -55px;
+    top: 0px;
+  }
+}
+
+@media only screen and (min-width: 1260px) {
+  .wrapper {
+    justify-content: flex-start;
+    margin-left: 100px;
+  }
+}
